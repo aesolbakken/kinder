@@ -31,7 +31,7 @@ describe KindergartensController do
   # Kindergarten. As you add validations to Kindergarten, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => 'jalla', :phone => 'balla'}
   end
   
   describe "GET 'index'" do
