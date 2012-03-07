@@ -5,6 +5,9 @@ gem 'mysql2'
 gem 'jquery-rails'
 gem 'devise'
 
+#Needed for heroku deploy
+gem 'pg'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
