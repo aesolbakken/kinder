@@ -1,14 +1,12 @@
 <%= form_for(@kindergarten) do |f| %>
   <% if @kindergarten.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@kindergarten.errors.count, "error") %> prohibited this kindergarten from being saved:</h2>
+    <% @kindergarten.errors.full_messages.each do |msg| %>
+      <div class="alert alert-error">
+        <a class="close" data-dismiss="alert">×</a>
+              <p><%= msg %></p>
+          </div>  
+    <% end %>
 
-      <ul>
-      <% @kindergarten.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div class="field">

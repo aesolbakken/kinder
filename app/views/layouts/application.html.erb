@@ -7,10 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= yield %>
+<%= render :partial => 'common/flashes' %>
+
+<div class="container">
+  <div class="header">
+
+
+    <span style="float: right;">
+    <% if user_signed_in? %>
+      Logget inn som: <%= current_user.email %>
+      <%= link_to('Logg ut', destroy_user_session_path, :method => :delete) %>
+    <% end %>
+    </span>
+  </div>
+
+  <div class="main">
+
+    <%= yield %>
+
+  </div>
+
+  <div class="footer">
+    <br/>
+
+    <div style="text-align: right; color:gray">0.1</div>
+
+  </div>
+
+</div>
+
 
 </body>
 </html>
