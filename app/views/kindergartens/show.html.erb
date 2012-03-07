@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @kindergarten.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @kindergarten.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @kindergarten.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_kindergarten_path(@kindergarten) %> |
+<%= link_to 'Back', kindergartens_path %>
