@@ -1,27 +1,19 @@
-<%= form_for(@kindergarten) do |f| %>
+<%= simple_form_for(@kindergarten, :html => {:class => 'form-horizontal'}) do |form| %>
+
   <% if @kindergarten.errors.any? %>
     <% @kindergarten.errors.full_messages.each do |msg| %>
       <div class="alert alert-error">
         <a class="close" data-dismiss="alert">×</a>
-              <p><%= msg %></p>
-          </div>  
+
+        <p><%= msg %></p>
+      </div>
     <% end %>
 
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= form.input :name,  :label => 'Navn' %>
+  <%= form.input :email, :label => 'E-post' %>
+  <%= form.input :phone, :label => 'Telefon' %>
+
+  <%= form.button :wrapped, :cancel => kindergartens_path %>
 <% end %>

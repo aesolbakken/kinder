@@ -7,6 +7,10 @@ gem 'devise'
 #Needed for heroku deploy
 gem 'heroku'
 
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'show_for'
+gem 'kaminari'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
