@@ -1,7 +1,7 @@
 nb:
   simple_form:
-    creating: "Creating..."
-    updating: 'Updating...'
+    creating: "Lagrer..."
+    updating: 'Oppdaterer...'
     buttons:
       or: 'eller'
       cancel: 'avbryt'
