@@ -1,7 +1,6 @@
 # Use this setup block to configure all options available in SimpleForm.
-require File.expand_path('../../../../Lib/extras/wrapped_button', __FILE__)
+require 'wrapped_button'
 SimpleForm.setup do |config|
-  include WrappedButton
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
   # wrapper, change the order or even add your own to the

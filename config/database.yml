@@ -28,7 +28,7 @@ staging:
   <<: *common
 
 production:
-    database: rvo_production
-    username: rvo
-    password: alfie
+    database: kinder_production
+    username: kind
+    password: jeppsi
     <<: *common
