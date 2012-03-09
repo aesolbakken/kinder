@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kinder</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <title><%= content_for?(:title) ? yield(:title) : 'Barnehager' %></title>
+
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
+
+  <%= yield(:head) %>
 </head>
+
 <body>
-
-<%= render :partial => 'common/flashes' %>
-
 <div class="container">
-  <div class="header">
-
-
-    <span style="float: right;">
-    <% if user_signed_in? %>
-      Logget inn som: <%= current_user.email %>
-      <%= link_to('Logg ut', destroy_user_session_path, :method => :delete) %>
-    <% end %>
-    </span>
-  </div>
-
-  <div class="main">
-
-    <%= yield %>
-
-  </div>
-
-  <div class="footer">
-    <br/>
-
-    <div style="text-align: right; color:gray">0.1</div>
-
-  </div>
-
+  <%= render :partial => 'common/menu' %>
 </div>
 
+<div class="container">
+  <div class="content">
+
+
+    <div class="row">
+      <div class="span12">
+
+        <%= render :partial => 'common/flashes' %>
+
+        <%= yield %>
+      </div>
+    </div>
+
+    <footer>
+      <%= render :partial => 'common/footer' %>
+    </footer>
+  </div>
+</div>
 
 </body>
 </html>

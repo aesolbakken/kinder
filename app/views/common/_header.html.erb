@@ -1,0 +1,7 @@
+<h1><%= content_for?(:title) ? yield(:title) : 'Barnehage' %></h1>
+<span style="float: right;">
+    <% if user_signed_in? %>
+      Logget inn som: <%= current_user.email %>
+        <%= link_to('Logg ut', destroy_user_session_path, :method => :delete) %>
+    <% end %>
+    </span>
