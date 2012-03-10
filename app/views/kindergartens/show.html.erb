@@ -1,3 +1,5 @@
+<h1>Barnehage</h1>
+
 <%= show_for @kindergarten do |u| %>
   <%= u.attribute :name %>
   <%= u.attribute :email %>
@@ -5,6 +7,8 @@
   <%= u.association :departments %>
 <% end %>
 
-
-<%= link_to 'Endre', edit_kindergarten_path(@kindergarten) %> |
-<%= link_to 'Tilbake', kindergartens_path %>
+<div class="form-actions">
+  <%= link_to 'Tilbake', kindergartens_path, :class => 'btn'  %>
+  <%= link_to 'Endre', edit_kindergarten_path(@kindergarten), :class => 'btn' %>
+  <%= link_to 'Slett', kindergarten_path(@kindergarten), :method => 'delete', :confirm => 'Er du sikker?', :class => 'btn btn-danger' %>
+</div>

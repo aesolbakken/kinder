@@ -7,7 +7,7 @@ gem 'devise'
 #Needed for heroku deploy
 gem 'heroku'
 
-gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 gem 'show_for'
 gem 'kaminari'
 
@@ -25,6 +25,7 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 

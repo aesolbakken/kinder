@@ -1,27 +1,26 @@
-<h1>Liste over barnehager</h1>
-
-
-<table class="table table-striped table-bordered table-condensed">
+<h1>Barnehager</h1>
+<table class="table table-striped">
   <thead>
-  <tr>
-    <th>Navn</th>
-    <th>e-post</th>
-    <th>Tlf</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th>Navn</th>
+      <th>E-post</th>
+      <th>Telefon</th>
+      <th>Handlinger</th>
+    </tr>
   </thead>
   <tbody>
-  <% @kindergartens.each do |kindergarten| %>
-    <tr>
-      <td><%= kindergarten.name %></td>
-      <td><%= kindergarten.email %></td>
-      <td><%= kindergarten.phone %></td>
-      <td><%= link_to 'Show', kindergarten %></td>
-      <td><%= link_to 'Edit', edit_kindergarten_path(kindergarten) %></td>
-      <td><%= link_to 'Destroy', kindergarten, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
-  <% end %>
+    <% @kindergartens.each do |kindergarten| %>
+      <tr>
+        <td><%= link_to kindergarten.name, kindergarten_path(kindergarten) %></td>
+        <td><%= kindergarten.email %></td>
+        <td><%= kindergarten.phone %></td>
+        <td>
+          <%= link_to 'Endre', edit_kindergarten_path(kindergarten), :class => 'btn btn-mini' %>
+          <%= link_to 'Slett', kindergarten_path(kindergarten), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Ny', new_kindergarten_path, :class => 'btn btn-primary' %>

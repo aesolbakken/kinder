@@ -1,0 +1,5 @@
+nb:
+  show_for:
+    blank: "Ikke spesifisert"
+    "yes": "Ja"
+    "no": "Nei"

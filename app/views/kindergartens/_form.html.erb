@@ -1,19 +1,14 @@
-<%= simple_form_for(@kindergarten, :html => {:class => 'form-horizontal'}) do |form| %>
+<%= simple_form_for @kindergarten, :html => {:class => 'form-horizontal'} do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.present? && controller.action_name == 'new' ? 'Ny' : 'Endre' %> barnehage</legend>
 
-  <% if @kindergarten.errors.any? %>
-    <% @kindergarten.errors.full_messages.each do |msg| %>
-      <div class="alert alert-error">
-        <a class="close" data-dismiss="alert">×</a>
+    <%= f.input :name, :label => 'Navn' %>
+    <%= f.input :email, :label => 'E-post' %>
+    <%= f.input :phone, :label => 'Telefon' %>
 
-        <p><%= msg %></p>
-      </div>
-    <% end %>
-
-  <% end %>
-
-  <%= form.input :name,  :label => 'Navn' %>
-  <%= form.input :email, :label => 'E-post' %>
-  <%= form.input :phone, :label => 'Telefon' %>
-
-  <%= form.button :wrapped, :cancel => kindergartens_path %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Avbryt', kindergartens_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>

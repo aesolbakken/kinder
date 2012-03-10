@@ -44,7 +44,7 @@ class KindergartensController < ApplicationController
 
     respond_to do |format|
       if @kindergarten.save
-        format.html { redirect_to @kindergarten, notice: 'Kindergarten was successfully created.' }
+        format.html { redirect_to @kindergarten, notice: 'Barnehagen ble opprettet.' }
         format.json { render json: @kindergarten, status: :created, location: @kindergarten }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class KindergartensController < ApplicationController
 
     respond_to do |format|
       if @kindergarten.update_attributes(params[:kindergarten])
-        format.html { redirect_to @kindergarten, notice: 'Kindergarten was successfully updated.' }
+        format.html { redirect_to @kindergarten, notice: 'Barnehagen ble oppdatert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -18,3 +18,13 @@
     <%= content_tag :div, flash[:alert] %>
   </div>
 <% end %>
+
+<% if false %>
+  <!-- More DRY method but need to also display warning-->
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
