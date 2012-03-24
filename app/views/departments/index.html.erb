@@ -1,21 +1,26 @@
-<h1>Listing departments</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @departments.each do |department| %>
-  <tr>
-    <td><%= link_to 'Show', department %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Departments</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Kindergarten</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.id %></td>
+        <td><%= link_to department.kindergarten_id, department_path(department) %></td>
+        <td><%= department.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_department_path(department), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', department_path(department), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Department', new_department_path %>
+<%= link_to 'New', new_department_path, :class => 'btn btn-primary' %>

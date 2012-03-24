@@ -12,3 +12,30 @@
   <%= link_to 'Endre', edit_kindergarten_path(@kindergarten), :class => 'btn' %>
   <%= link_to 'Slett', kindergarten_path(@kindergarten), :method => 'delete', :confirm => 'Er du sikker?', :class => 'btn btn-danger' %>
 </div>
+
+<h1>Departments</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Kindergarten</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @kindergarten.departments.each do |department| %>
+      <tr>
+        <td><%= department.id %></td>
+        <td><%= link_to department.kindergarten_id, department_path(department) %></td>
+        <td><%= department.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_department_path(department), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', department_path(department), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ny avdeling', new_department_path, :class => 'btn btn-primary' %>

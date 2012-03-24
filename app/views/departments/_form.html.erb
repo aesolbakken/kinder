@@ -1,10 +1,24 @@
-<%= simple_form_for(@department) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @department, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.present? && controller.action_name == 'new' ? 'Ny' : 'Endre' %> avdeling</legend>
 
-  <div class="form-inputs">
-  </div>
+    <div class="control-group">
+      <%= f.label :kindergarten_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :kindergarten_id, :class => 'number_field' %>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', departments_path, :class => 'btn' %>
+    </div>
+  </fieldset>
 <% end %>
