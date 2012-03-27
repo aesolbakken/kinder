@@ -1,0 +1,6 @@
+<%= f.input :name, :label => 'Avdelingsnavn' %>
+<%= f.input :_destroy, :as => :boolean, :label => 'Slett avdeling' %>
+
+<%= f.simple_fields_for :children do |builder| %>
+  <%= render :partial => 'child_form', :locals => {:f => builder} %>
+<% end %>

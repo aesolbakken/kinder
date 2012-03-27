@@ -1,10 +1,19 @@
 <%= simple_form_for @kindergarten, :html => {:class => 'form-horizontal'} do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.present? && controller.action_name == 'new' ? 'Ny' : 'Endre' %> barnehage</legend>
+    <legend><%= controller.action_name.present? && controller.action_name == 'new' ? 'Ny ' : 'Endre ' %>barnehage
+    </legend>
 
     <%= f.input :name, :label => 'Navn' %>
     <%= f.input :email, :label => 'E-post' %>
     <%= f.input :phone, :label => 'Telefon' %>
+
+
+
+    <%= f.simple_fields_for :departments do |builder| %>
+      <%= render :partial => 'department_form', :locals => {:f => builder} %>
+
+    <% end %>
+
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
