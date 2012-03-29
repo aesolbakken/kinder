@@ -1,6 +1,9 @@
-<%= f.input :name, :label => 'Avdelingsnavn' %>
-<%= f.input :_destroy, :as => :boolean, :label => 'Slett avdeling' %>
+<div class="fields" style="background-color: yellow; padding: 10px;">
+  <%= f.input :name, :label => 'Avdelingsnavn' %>
+  <%= f.input :_destroy, :as => :hidden %>
+  <%= link_to "Fjern barn", "#", :class => "remove-child" %>
 
-<%= f.simple_fields_for :children do |builder| %>
-  <%= render :partial => 'child_form', :locals => {:f => builder} %>
-<% end %>
+  <%= f.simple_fields_for :children do |builder| %>
+    <%= render :partial => 'child_form', :locals => {:f => builder} %>
+  <% end %>
+</div>

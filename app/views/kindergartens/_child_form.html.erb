@@ -1,3 +1,7 @@
-<%= f.input :name, :label => 'Navn' %>
-<%= f.input :birthday, :as => :string, :label => 'Fødselsdag' %>
-<%= f.input :_destroy, :as => :boolean, :label => 'Slett' %>
+<div class="fields" style="background-color: gray; margin-top: 20px;">
+  <p>Barnet</p>
+  <%= f.input :name, :label => 'Navn' %>
+  <%= f.input :birthday, :as => :string, :label => 'Fødselsdag' %>
+  <%= f.input :_destroy, :as => :hidden %>
+  <%= link_to "Fjern barn", "#", :class => "remove-child" %>
+</div>
