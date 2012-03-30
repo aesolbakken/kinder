@@ -1,10 +1,15 @@
-<div class="fields <%= f.object.new_record? ? "initially-hidden" : nil %>" style="background-color: yellow; padding: 10px;">
+<div class="fields inner <%= f.object.new_record? ? "initially-hidden" : nil %>" style="background-color: yellow; padding: 10px;">
   <%= f.input :name, :label => 'Avdelingsnavn' %>
   <%= f.input :_destroy, :as => :hidden %>
   <%= link_to "Fjern avdeling", "#", :class => "remove-child" %>
-  <p><%= link_to_add_fields "Legg til barn", f, :children %></p>
 
-  <%= f.simple_fields_for :children do |builder| %>
-    <%= render :partial => 'child_fields', :locals => {:f => builder} %>
-  <% end %>
+
+
+  <div class="holder">
+    <p><%= link_to_add_fields "Legg til barn", f, :children %></p>
+    <div class="inner"></div>
+    <%= f.simple_fields_for :children do |builder| %>
+      <%= render :partial => 'child_fields', :locals => {:f => builder} %>
+    <% end %>
+  </div>
 </div>

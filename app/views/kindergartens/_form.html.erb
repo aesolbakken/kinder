@@ -7,13 +7,14 @@
     <%= f.input :email, :label => 'E-post' %>
     <%= f.input :phone, :label => 'Telefon' %>
 
-    <p><%= link_to_add_fields "Legg til avdeling", f, :departments %></p>
 
-
-
-    <%= f.simple_fields_for :departments do |builder| %>
-      <%= render :partial => 'department_fields', :locals => {:f => builder} %>
-    <% end %>
+    <div class="holder">
+      <div class="btn btn-primary"><%= link_to_add_fields "Legg til avdeling", f, :departments %></div>
+      <div class="inner"></div>
+      <%= f.simple_fields_for :departments do |builder| %>
+        <%= render :partial => 'department_fields', :locals => {:f => builder} %>
+      <% end %>
+    </div>
 
 
     <div class="form-actions">

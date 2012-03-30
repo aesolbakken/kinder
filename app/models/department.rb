@@ -4,5 +4,5 @@ class Department < ActiveRecord::Base
   validates_presence_of :name
   attr_accessible :name, :children_attributes
 
-  accepts_nested_attributes_for :children, :allow_destroy => true
+  accepts_nested_attributes_for :children, :reject_if => lambda { |a| a[:name].blank? && a[:birthday].blank? }, :allow_destroy => true
 end
