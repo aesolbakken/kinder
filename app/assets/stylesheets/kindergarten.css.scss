@@ -1,3 +1,10 @@
 .initially-hidden{
   display: none;
 }
+
+.fields{
+  border: 1px;
+  border-style: dotted;
+  @include border-radius(10px);
+  @include box-shadow(grey 2px 2px 10px);
+}
