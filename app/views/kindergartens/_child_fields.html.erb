@@ -1,15 +1,15 @@
 <div class="fields potentially-hidden" style="background-color: #d3d3d3; padding: 20px; margin: 20px;">
+  <span style="float: right;"><i class="icon-remove remove-child" title="Slett barn" style="cursor: pointer"></i></span>
   <p>Barnet</p>
   <%= f.input :name, :label => 'Navn' %>
   <%= f.input :birthday, :as => :string, :label => 'Fødselsdag' %>
   <%= f.input :_destroy, :as => :hidden %>
-  <%= link_to "Fjern barn", "#", :class => "remove-child" %>
 
-  <p><%= link_to_add_fields "Legg til forelder", f, :parents %></p>
 
   <div class="holder">
     <%= f.simple_fields_for :parents do |builder| %>
       <%= render :partial => 'parent_fields', :locals => {:f => builder} %>
     <% end %>
   </div>
+  <div class="btn btn-primary btn-mini"><%= link_to_add_fields "Legg til forelder", f, :parents %></div>
 </div>

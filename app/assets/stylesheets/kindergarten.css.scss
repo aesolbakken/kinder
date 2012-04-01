@@ -8,3 +8,9 @@
   @include border-radius(10px);
   @include box-shadow(grey 2px 2px 10px);
 }
+
+.btn{
+  a {
+    color: #ffffff;
+  }
+}
