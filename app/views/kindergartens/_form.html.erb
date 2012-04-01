@@ -8,15 +8,18 @@
     <%= f.input :phone, :label => 'Telefon' %>
 
 
+    <p><%= link_to_add_fields "Legg til avdeling", f, :departments %></p>
+
+    <div class="row" style="background: green">
+      <div class="span6" style="background: #adff2f">Level 2</div>
+      <div class="span6" style="background: #9acd32">Level 2</div>
+    </div>
+
     <div class="holder">
-      <p><%= link_to_add_fields "Legg til avdeling", f, :departments %></p>
-      
-      <div class="inner"></div>
       <%= f.simple_fields_for :departments do |builder| %>
         <%= render :partial => 'department_fields', :locals => {:f => builder} %>
       <% end %>
     </div>
-
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
