@@ -2,7 +2,7 @@
   <span style="float: right;"><i class="icon-remove remove-child" title="Slett barn" style="cursor: pointer"></i></span>
   <p>Barnet</p>
   <%= f.input :name, :label => 'Navn' %>
-  <%= f.input :birthday, :as => :string, :label => 'Fødselsdag' %>
+  <%= f.input :birthday, :label => 'Fødselsdag', :as => :string, :input_html => {:class => 'date_picker', :size => 900, :value => (f.object.birthday.blank? ? '' : f.object.birthday.strftime('%d.%m.%Y'))} %>
   <%= f.input :_destroy, :as => :hidden %>
 
 
