@@ -156,6 +156,7 @@ nb:
         email: e-post
         phone: Telefon
         departments: Avdelinger
+        user: Registrert av
 
   will_paginate:
     previous_label: "« Forrige"

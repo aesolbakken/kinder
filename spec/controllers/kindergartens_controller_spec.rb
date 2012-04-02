@@ -33,7 +33,7 @@ describe KindergartensController do
   def valid_attributes
     {:name => 'jalla', :phone => 'balla'}
   end
-  
+
   describe "GET 'index'" do
     it "should be successful" do
       get :index
@@ -43,7 +43,9 @@ describe KindergartensController do
 
   describe "GET index" do
     it "assigns all kindergartens as @kindergartens" do
-      kindergarten = Kindergarten.create! valid_attributes
+      kindergarten = Kindergarten.new valid_attributes
+      kindergarten.user_id= @user.id
+      kindergarten.save!
       get :index, {}
       assigns(:kindergartens).should eq([kindergarten])
     end
@@ -51,7 +53,9 @@ describe KindergartensController do
 
   describe "GET show" do
     it "assigns the requested kindergarten as @kindergarten" do
-      kindergarten = Kindergarten.create! valid_attributes
+      kindergarten = Kindergarten.new valid_attributes
+      kindergarten.user_id= @user.id
+      kindergarten.save!
       get :show, {:id => kindergarten.to_param}
       assigns(:kindergarten).should eq(kindergarten)
     end
@@ -66,7 +70,9 @@ describe KindergartensController do
 
   describe "GET edit" do
     it "assigns the requested kindergarten as @kindergarten" do
-      kindergarten = Kindergarten.create! valid_attributes
+      kindergarten = Kindergarten.new valid_attributes
+      kindergarten.user_id= @user.id
+      kindergarten.save!
       get :edit, {:id => kindergarten.to_param}
       assigns(:kindergarten).should eq(kindergarten)
     end
@@ -112,7 +118,9 @@ describe KindergartensController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested kindergarten" do
-        kindergarten = Kindergarten.create! valid_attributes
+        kindergarten = Kindergarten.new valid_attributes
+        kindergarten.user_id= @user.id
+        kindergarten.save!
         # Assuming there are no other kindergartens in the database, this
         # specifies that the Kindergarten created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -122,13 +130,17 @@ describe KindergartensController do
       end
 
       it "assigns the requested kindergarten as @kindergarten" do
-        kindergarten = Kindergarten.create! valid_attributes
+        kindergarten = Kindergarten.new valid_attributes
+        kindergarten.user_id= @user.id
+        kindergarten.save!
         put :update, {:id => kindergarten.to_param, :kindergarten => valid_attributes}
         assigns(:kindergarten).should eq(kindergarten)
       end
 
       it "redirects to the kindergarten" do
-        kindergarten = Kindergarten.create! valid_attributes
+        kindergarten = Kindergarten.new valid_attributes
+        kindergarten.user_id= @user.id
+        kindergarten.save!
         put :update, {:id => kindergarten.to_param, :kindergarten => valid_attributes}
         response.should redirect_to(kindergarten)
       end
@@ -136,7 +148,9 @@ describe KindergartensController do
 
     describe "with invalid params" do
       it "assigns the kindergarten as @kindergarten" do
-        kindergarten = Kindergarten.create! valid_attributes
+        kindergarten = Kindergarten.new valid_attributes
+        kindergarten.user_id= @user.id
+        kindergarten.save!
         # Trigger the behavior that occurs when invalid params are submitted
         Kindergarten.any_instance.stub(:save).and_return(false)
         put :update, {:id => kindergarten.to_param, :kindergarten => {}}
@@ -144,7 +158,9 @@ describe KindergartensController do
       end
 
       it "re-renders the 'edit' template" do
-        kindergarten = Kindergarten.create! valid_attributes
+        kindergarten = Kindergarten.new valid_attributes
+        kindergarten.user_id= @user.id
+        kindergarten.save!
         # Trigger the behavior that occurs when invalid params are submitted
         Kindergarten.any_instance.stub(:save).and_return(false)
         put :update, {:id => kindergarten.to_param, :kindergarten => {}}
@@ -155,14 +171,18 @@ describe KindergartensController do
 
   describe "DELETE destroy" do
     it "destroys the requested kindergarten" do
-      kindergarten = Kindergarten.create! valid_attributes
+      kindergarten = Kindergarten.new valid_attributes
+      kindergarten.user_id= @user.id
+      kindergarten.save!
       expect {
         delete :destroy, {:id => kindergarten.to_param}
       }.to change(Kindergarten, :count).by(-1)
     end
 
     it "redirects to the kindergartens list" do
-      kindergarten = Kindergarten.create! valid_attributes
+      kindergarten = Kindergarten.new valid_attributes
+      kindergarten.user_id= @user.id
+      kindergarten.save!
       delete :destroy, {:id => kindergarten.to_param}
       response.should redirect_to(kindergartens_url)
     end

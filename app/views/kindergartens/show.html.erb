@@ -4,6 +4,7 @@
   <%= u.attribute :name %>
   <%= u.attribute :email %>
   <%= u.attribute :phone %>
+  <%= u.association :user, :using => :email %>
   <%= u.association :departments %>
 <% end %>
 

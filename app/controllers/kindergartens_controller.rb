@@ -1,4 +1,6 @@
 class KindergartensController < ApplicationController
+  load_and_authorize_resource
+
   # GET /kindergartens
   # GET /kindergartens.json
   def index
@@ -41,6 +43,7 @@ class KindergartensController < ApplicationController
   # POST /kindergartens.json
   def create
     @kindergarten = Kindergarten.new(params[:kindergarten])
+    @kindergarten.user_id= current_user.id
 
     respond_to do |format|
       if @kindergarten.save

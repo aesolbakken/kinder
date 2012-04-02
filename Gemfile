@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
 gem 'devise'
+gem 'cancan'
 
 #Needed for heroku deploy
 gem 'heroku'
