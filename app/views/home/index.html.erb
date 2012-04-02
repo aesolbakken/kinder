@@ -1,0 +1,69 @@
+<div class="row">
+  <span class="span7">
+    <div class="home-info">
+      <h2>Lorem ipsum</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel mauris sapien, interdum feugiat odio.
+        Praesent auctor elit sem. Etiam nec libero quis mauris feugiat porttitor. Suspendisse augue sapien, iaculis et
+        viverra sed, tempor eu augue. Sed porttitor turpis at erat vestibulum at euismod elit rhoncus. Vivamus gravida
+        tortor est, sit amet placerat mauris. Phasellus non tristique mi. Vestibulum ut mi felis, non accumsan nibh.
+        Phasellus a urna nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+        egestas. Nullam sit amet condimentum sem. Nullam at sem eu leo cursus sollicitudin in in eros. Fusce euismod
+        suscipit viverra. Sed vel nibh a est laoreet eleifend. Nunc ac lectus sapien, at ultrices mauris. Vivamus vitae
+        neque vitae magna posuere rhoncus.</p>
+
+      <p>Praesent ut nibh nec mi tempus luctus sed eu risus. Ut nec eros imperdiet justo accumsan semper non condimentum
+        libero. Nunc erat eros, feugiat eu iaculis in, mattis id dolor. Vivamus luctus, sem vitae luctus vestibulum, sem
+        nunc aliquet urna, faucibus feugiat nisl est vel tortor. Sed a ullamcorper libero. Suspendisse at eros sed ante
+        venenatis pretium. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Praesent porta leo vel tellus mollis eget dapibus leo iaculis. Fusce eget sapien ante, quis commodo enim. Nulla
+        interdum nunc vitae odio ornare eu mattis nunc adipiscing. Aenean semper purus vitae sapien blandit lobortis.
+        Aenean fringilla, nisi eu commodo auctor, nunc purus pulvinar velit, ac tempus ante eros at urna.</p>
+
+      <p>Phasellus lacinia eleifend libero at posuere. Nulla rhoncus accumsan dui, ut adipiscing velit molestie in.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam quis enim
+        nisl. Suspendisse nisi turpis, rhoncus eu lobortis vitae, tincidunt sed dui. Nulla facilisi. Aliquam placerat
+        facilisis tincidunt. Morbi a turpis vel lorem aliquam vehicula. Nunc quis magna quis justo tincidunt pharetra in
+        ut neque.</p>
+    </div>
+  </span>
+  <span class="span5">
+    <% if !user_signed_in? %>
+      <div class="home-login-form">
+        <h2>Logg inn</h2>
+
+        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.input :email, :as => :email %>
+          <%= f.input :password, :as => :password %>
+
+          <% if devise_mapping.rememberable? -%>
+            <%= f.input :remember_me, :label => "Husk meg", :as => :boolean %>
+          <% end -%>
+
+
+          <%= f.submit "Logg inn", :class => 'btn btn-primary' %>
+
+
+        <% end %>
+
+        <%= link_to "Registrer deg", new_registration_path(resource_name) %>
+        <br/>
+        <%= link_to "Glemt passord?", new_password_path(resource_name) %>
+      </div>
+    <% else %>
+      <div class="home-right-menu">
+        <h2>Lorem Ipsum</h2>
+
+        <ul>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>Lorem ipsum dolor sit amet</li>
+          <li>Lorem ipsum dolor sit amet</li>
+        </ul>
+
+      </div>
+    <% end %>
+  </span>
+
+</div>
+

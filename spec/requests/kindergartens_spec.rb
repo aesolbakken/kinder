@@ -8,7 +8,7 @@ describe "Kindergartens" do
       fill_in 'user_email', :with => @user.email
       fill_in 'user_password', :with => @user.password
     end
-    click_button 'Sign in'
+    click_button 'Logg inn'
   end
   describe "GET /kindergartens" do
     it "works! (now write some real specs)" do

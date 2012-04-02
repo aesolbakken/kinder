@@ -1,16 +1,37 @@
-.initially-hidden{
+.initially-hidden {
   display: none;
 }
 
-.fields{
+.fields {
   border: 1px;
   border-style: dotted;
   @include border-radius(10px);
   @include box-shadow(grey 2px 2px 10px);
 }
 
-.btn{
+.btn {
   a {
     color: #ffffff;
   }
+}
+
+.home-login-form {
+  padding: 20px;
+  border: 1px;
+  border-style: dotted;
+  @include border-radius(10px);
+}
+
+.home-info {
+  padding: 20px;
+  border: 1px;
+  border-style: dotted;
+  @include border-radius(10px);
+}
+
+.home-right-menu {
+  padding: 20px;
+  border: 1px;
+  border-style: dotted;
+  @include border-radius(10px);
 }

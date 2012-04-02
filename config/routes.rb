@@ -1,7 +1,7 @@
 Kinder::Application.routes.draw do
   devise_for :users
 
-  root :to => "kindergartens#index"
+  root :to => "home#index"
   resources :kindergartens
   resources :departments
 
